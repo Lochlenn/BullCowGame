@@ -15,14 +15,14 @@ int main()
 	// get a guess from the player
 	std::cout << "\n\nEnter a guess: ";
 	std::string Guess = "";
-	std::cin >> Guess;
+	std::getline (std::cin, Guess);
 
 	// repeat guess back to player
 	std::cout << "\nYour guess was " << Guess << ".\n";
 
 	// get a guess from the player
 	std::cout << "\n\nEnter a guess: ";
-	std::cin >> Guess;
+	std::getline(std::cin, Guess);
 
 	// repeat guess back to player
 	std::cout << "\nYour guess was " << Guess << ".\n";
