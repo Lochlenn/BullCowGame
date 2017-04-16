@@ -3,8 +3,21 @@
 
 using namespace std;
 
+void PrintIntro();
+string GetGuessAndPrintBack();
+
+
+// entry point into the application
 int main() 
 {
+	PrintIntro();
+	GetGuessAndPrintBack();
+	GetGuessAndPrintBack();
+
+	return 0;
+}
+
+void PrintIntro() {
 	// introduce the game
 	constexpr int WORD_LENGTH = 5;
 
@@ -12,19 +25,17 @@ int main()
 	std::cout << "Can you guess the " << WORD_LENGTH;
 	std::cout << " letter isogram that I'm thinking of?\n";
 
+	return;
+}
+
+string GetGuessAndPrintBack() {
 	// get a guess from the player
 	std::cout << "\n\nEnter a guess: ";
 	std::string Guess = "";
-	std::getline (std::cin, Guess);
-
-	// repeat guess back to player
-	std::cout << "\nYour guess was " << Guess << ".\n";
-
-	// get a guess from the player
-	std::cout << "\n\nEnter a guess: ";
 	std::getline(std::cin, Guess);
 
 	// repeat guess back to player
 	std::cout << "\nYour guess was " << Guess << ".\n";
-	return 0;
+	
+	return Guess;
 }
