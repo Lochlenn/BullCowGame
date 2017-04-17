@@ -21,6 +21,9 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="FBullCowGame.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{0BE13D43-2839-4374-BE85-8A45875FE7C7}</ProjectGuid>
