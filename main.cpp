@@ -1,10 +1,11 @@
 #include <iostream>
 #include <string>
 
+using namespace std;
 
 void PrintIntro();
 void PlayGame();
-std::string GetGuess();
+string GetGuess();
 bool AskToPlayAgain();
 
 
@@ -39,12 +40,12 @@ void PlayGame()
 	constexpr int NUMBER_OF_TURNS = 5;
 	for (int i = 1; i <= NUMBER_OF_TURNS; i++)
 	{
-		std::string Guess = GetGuess();
+		string Guess = GetGuess();
 		std::cout << "Your guess was " << Guess << ".\n";
 	}
 }
 
-std::string GetGuess() 
+string GetGuess() 
 {
 	// get a guess from the player
 	std::cout << "\nEnter a guess: ";
@@ -57,8 +58,8 @@ std::string GetGuess()
 bool AskToPlayAgain()
 {
 	std::cout << "Do you want to play again (y/n)? ";
-	std::string Response = "";
-	std::getline(std::cin, Response);
+	string Response = "";
+	getline(cin, Response);
 
 	return (Response[0] == 'y') || (Response[0] == 'Y'); // return value of 1 if conditions met
 	return false;
