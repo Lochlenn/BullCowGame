@@ -11,13 +11,16 @@ string GetGuessAndPrintBack();
 int main() 
 {
 	PrintIntro();
-	GetGuessAndPrintBack();
-	GetGuessAndPrintBack();
-
+	constexpr int NUMBER_OF_TURNS = 5;
+	for (int i = 1; i <= NUMBER_OF_TURNS; i++) 
+	{
+		GetGuessAndPrintBack();
+	}
 	return 0;
 }
 
-void PrintIntro() {
+void PrintIntro() 
+{
 	// introduce the game
 	constexpr int WORD_LENGTH = 5;
 
@@ -28,14 +31,15 @@ void PrintIntro() {
 	return;
 }
 
-string GetGuessAndPrintBack() {
+string GetGuessAndPrintBack() 
+{
 	// get a guess from the player
-	std::cout << "\n\nEnter a guess: ";
+	std::cout << "\nEnter a guess: ";
 	std::string Guess = "";
 	std::getline(std::cin, Guess);
 
 	// repeat guess back to player
-	std::cout << "\nYour guess was " << Guess << ".\n";
+	std::cout << "Your guess was " << Guess << ".\n";
 	
 	return Guess;
 }
