@@ -1,19 +1,22 @@
 #pragma once
 #include <string>
 
+using FString = std::string;
+using int32 = int;
+
 class FBullCowGame {
 public:
-	int GetMaxTries() const;
+	int32 GetMaxTries() const;
 	bool IsGameWon() const;
-	int GetCurrentTry() const;
+	int32 GetCurrentTry() const;
 
 	void Reset();  // TODO make a more rich return value
-	bool CheckGuessValidity(std::string);
+	bool CheckGuessValidity(FString);
 	// SomeNewType to submit valid guess STRING
 	// provide a method for counting bulls and cows and increasing try #
 
 
 private:
-	int MyCurrentTry = 1;
-	int MyMaxTries = 5;
+	int32 MyCurrentTry = 1;
+	int32 MyMaxTries = 5;
 };

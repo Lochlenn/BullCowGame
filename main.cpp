@@ -1,11 +1,19 @@
+/* This is the console executable that makes use of
+   the BullCow class.  This acts as the view in a MVC
+   patters responsible for all user interaction. For game logic
+   see FBullCowGame class
+*/
+
 #include <iostream>
 #include <string>
 #include "FBullCowGame.h"
 
+using FText = std::string;
+using int32 = int;
 
 void PrintIntro();
 void PlayGame();
-std::string GetGuess();
+FText GetGuess();
 bool AskToPlayAgain();
 
 FBullCowGame BCGame; // instantiate a new game
@@ -27,7 +35,7 @@ int main()
 void PrintIntro() 
 {
 	// introduce the game
-	constexpr int WORD_LENGTH = 5;
+	constexpr int32 WORD_LENGTH = 5;
 
 	std::cout << "Welcome to Bulls and Cows, a fun word game.\n";
 	std::cout << "Can you guess the " << WORD_LENGTH;
@@ -38,13 +46,13 @@ void PrintIntro()
 
 void PlayGame()
 {
-	int MaxTries = BCGame.GetMaxTries();
+	int32 MaxTries = BCGame.GetMaxTries();
 	std::cout << MaxTries << std::endl;
 
 	//TODO change from FOR to WHILE loop once validating tries
-	for (int i = 1; i <= 5; i++)
+	for (int32 i = 1; i <= 5; i++)
 	{
-		std::string Guess = GetGuess(); // TODO make loop check for valid guesses before decrimenting tries remaining
+		FText Guess = GetGuess(); // TODO make loop check for valid guesses before decrimenting tries remaining
 		
 		// submit valild guess to game
 		// print number of bulls and cows
@@ -54,12 +62,12 @@ void PlayGame()
 	// TODO add game summary
 }
 
-std::string GetGuess() 
+FText GetGuess() 
 {
-	int CurrentTry = BCGame.GetCurrentTry();
+	int32 CurrentTry = BCGame.GetCurrentTry();
 	// get a guess from the player
 	std::cout << "Try: " << CurrentTry << "\nEnter a guess: ";
-	std::string Guess = "";
+	FText Guess = "";
 	std::getline(std::cin, Guess);
 
 	return Guess;
@@ -68,7 +76,7 @@ std::string GetGuess()
 bool AskToPlayAgain()
 {
 	std::cout << "Do you want to play again (y/n)? ";
-	std::string Response = "";
+	FText Response = "";
 	std::getline(std::cin, Response);
 
 	return (Response[0] == 'y') || (Response[0] == 'Y'); // return value of 1 if conditions met
