@@ -3,12 +3,12 @@
 
 class FBullCowGame {
 public:
-	void Reset();  // TODO make a more rich return value
-	int GetMaxTries();
-	bool CheckGuessValidity(std::string);
-	bool IsGameWon();
-	int GetCurrentTry();
+	int GetMaxTries() const;
+	bool IsGameWon() const;
+	int GetCurrentTry() const;
 
+	void Reset();  // TODO make a more rich return value
+	bool CheckGuessValidity(std::string);
 
 
 
