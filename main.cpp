@@ -34,11 +34,10 @@ int main()
 
 void PrintIntro() 
 {
+	// int32 WORD_LENGTH = BCGame.GetHiddenWordLength();
 	// introduce the game
-	constexpr int32 WORD_LENGTH = 5;
-
 	std::cout << "Welcome to Bulls and Cows, a fun word game.\n";
-	std::cout << "Can you guess the " << WORD_LENGTH;
+	std::cout << "Can you guess the " << BCGame.GetHiddenWordLength();
 	std::cout << " letter isogram that I'm thinking of?\n";
 
 	return;
@@ -47,7 +46,6 @@ void PrintIntro()
 void PlayGame()
 {
 	int32 MaxTries = BCGame.GetMaxTries();
-	std::cout << MaxTries << std::endl;
 
 	//TODO change from FOR to WHILE loop once validating tries
 	for (int32 i = 1; i <= 5; i++)
