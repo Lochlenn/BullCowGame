@@ -70,25 +70,25 @@ FText GetValidGuess() // loop continually until valid guess is given
 	do {
 		// get a guess from the player
 		int32 CurrentTry = BCGame.GetCurrentTry();
-		std::cout << "Try: " << CurrentTry << "\nEnter a guess: ";
+		std::cout << "Try: " << CurrentTry << " of " << BCGame.GetMaxTries();
+		std::cout << "\nEnter a guess: ";
 		std::getline(std::cin, Guess);
 		Status = BCGame.CheckGuessValidity(Guess);
 		switch (Status)
 		{
 		case EGuessStatus::Wrong_Length:
-			std::cout << "Please enter a " << BCGame.GetHiddenWordLength() << " letter word.\n";
+			std::cout << "Please enter a " << BCGame.GetHiddenWordLength() << " letter word.\n\n";
 			break;
 		case EGuessStatus::Not_IsoGram:
-			std::cout << "Please enter an isogram (no letters used more than once).\n";
+			std::cout << "Please enter an isogram (no letters used more than once).\n\n";
 			break;
 		case EGuessStatus::Not_Lowercase:
-			std::cout << "Please enter all guesses in lowercase only.\n";
+			std::cout << "Please enter all guesses in lowercase only.\n\n";
 			break;
 		default:
 			// assume the guess is valid
 			break;
 		}
-		std::cout << std::endl;
 	} while (Status != EGuessStatus::OK);
 	return Guess;
 }
