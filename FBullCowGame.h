@@ -30,13 +30,12 @@ public:
 	EGuessStatus CheckGuessValidity(FString) const;
 	bool IsGameWon() const;
 
-	void Reset();  // TODO make a more rich return value
+	void Reset(); 
 	FBullCowCount SubmitValidGuess(FString);
 
 
 private:
 	int32 MyCurrentTry = 1;
-	int32 MyMaxTries = 5;
 	FString MyHiddenWord;
 	bool bGameIsWon;
 	bool IsIsogram(FString) const;

@@ -59,7 +59,6 @@ void PlayGame()
 		std::cout << ". Cows: " << BullCowCount.Cows << "\n\n";
 		
 	}
-	// TODO add game summary
 }
 
 FText GetValidGuess() // loop continually until valid guess is given

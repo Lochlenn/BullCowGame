@@ -7,18 +7,19 @@ using int32 = int;
 // getters
 int32 FBullCowGame::GetCurrentTry() const { return MyCurrentTry; }
 int32 FBullCowGame::GetHiddenWordLength() const { return MyHiddenWord.length(); }
-int32 FBullCowGame::GetMaxTries() const { return MyMaxTries; }
 bool FBullCowGame::IsGameWon() const { return bGameIsWon; }
 
 FBullCowGame::FBullCowGame() { Reset(); }
 
+int32 FBullCowGame::GetMaxTries() const {
+	TMap<int32, int32> WordLengthToMaxTries{ {3,5}, {4, 8}, {5,10}, {6,15}, {7, 21} };
+	return WordLengthToMaxTries[MyHiddenWord.length()];
+}
 
 void FBullCowGame::Reset()
 {
-	constexpr int32 MAX_TRIES = 8;
-	const FString HIDDEN_WORD = "planet";
 
-	MyMaxTries = MAX_TRIES;
+	const FString HIDDEN_WORD = "merlin";
 	MyHiddenWord = HIDDEN_WORD;
 
 	MyCurrentTry = 1;
@@ -98,7 +99,7 @@ bool FBullCowGame::IsIsogram(FString Word) const
 		else { LetterSeen[Letter] = true; } // add letter to the map as seen
 			
 	}
-	return true; // for example in cases where /0 is entered
+	return true; // for example in cases where \0 is entered
 }
 
 bool FBullCowGame::IsLowercase(FString Word) const
