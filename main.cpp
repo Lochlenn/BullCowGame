@@ -49,7 +49,6 @@ void PlayGame()
 
 	// loop asking for guesses while the game is NOT won
 	// and there are still tries remaining
-	//for (int32 i = 1; i <= 5; i++) {
 	while (!BCGame.IsGameWon() && BCGame.GetCurrentTry() <= MaxTries){
 		FText Guess = GetValidGuess(); 
 
